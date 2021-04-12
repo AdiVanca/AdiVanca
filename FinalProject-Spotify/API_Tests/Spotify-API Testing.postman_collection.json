@@ -1,0 +1,1816 @@
+{
+	"info": {
+		"_postman_id": "ec03cc7a-c1de-b0aa-c923-7e913236751c",
+		"name": "Spotify-API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search API tests",
+			"item": [
+				{
+					"name": "Search for an artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Searched artist is found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.artists.items[0].name).to.eql(\"Maroon 5\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/search?q=Maroon5&type=artist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Maroon5"
+								},
+								{
+									"key": "type",
+									"value": "artist"
+								}
+							]
+						},
+						"description": "Test that when a user search for an artist first result is 'Maroon5'."
+					},
+					"response": []
+				},
+				{
+					"name": "Search for a track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Searched track is found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tracks.items[0].name.toLocaleLowerCase).to.eql(\"Nothing else matters\".toLocaleLowerCase);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/search?type=track&q=Nothing else matters",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "track"
+								},
+								{
+									"key": "q",
+									"value": "Nothing else matters"
+								}
+							]
+						},
+						"description": "Test that when a user search for a track first result is 'Nothing else matteers'."
+					},
+					"response": []
+				},
+				{
+					"name": "Search for an artist and track",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Searched artist is found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tracks.items[0].album.artists[0].name).to.eql(\"Metallica\");\r",
+									"});\r",
+									"pm.test(\"Searched track is found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tracks.items[0].name).to.eql(\"Nothing Else Matters\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/search?type=artist,track&q=Metallica Nothing Else Matters",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "artist,track"
+								},
+								{
+									"key": "q",
+									"value": "Metallica Nothing Else Matters"
+								}
+							]
+						},
+						"description": "A test was done to see if the artist and track was found"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Browser API tests",
+			"item": [
+				{
+					"name": "Get All New Releases",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request should get at least 1 new release album\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.albums.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/new-releases?country=RO",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"new-releases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "RO"
+								}
+							]
+						},
+						"description": "Since the \"New Releases\" list is constantly changing, a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Featured Playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.playlists.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/featured-playlists?country=RO",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"featured-playlists"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "RO"
+								}
+							]
+						},
+						"description": "Since the \"All Featured Playlist\"is constantly changing, a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									" pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.categories.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/categories?country=RO",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "RO"
+								}
+							]
+						},
+						"description": "Since the \"All Category\" can change at any time, a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql('toplists');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/categories/toplists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"categories",
+								"toplists"
+							]
+						},
+						"description": "A test was made to see if the category id \"toplists\" exists."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Category's Playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.playlists.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/categories/mood/playlists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"categories",
+								"mood",
+								"playlists"
+							]
+						},
+						"description": "Since the \"Category's Playlists\" can change at any time, a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recommendations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 450ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(450);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.tracks.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/recommendations?seed_artists=137W8MRPWKqSmrBGDBFSop&seed_tracks=&seed_genres=pop",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "seed_artists",
+									"value": "137W8MRPWKqSmrBGDBFSop"
+								},
+								{
+									"key": "seed_tracks",
+									"value": ""
+								},
+								{
+									"key": "seed_genres",
+									"value": "pop"
+								}
+							]
+						},
+						"description": "Since the \"Recommendations\" can change at any time, a check was done to see if at least one item is in the list\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recommendation Genres",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.genres.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/recommendations/available-genre-seeds",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"recommendations",
+								"available-genre-seeds"
+							]
+						},
+						"description": "A test was made to see if the user get at least one genre recommendation"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Follow API tests",
+			"item": [
+				{
+					"name": "Follow a Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var requestGetUserFollowsPlaylist = {\r",
+									"    \"url\": \"https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/followers/contains?ids=3zi2r02ikiqfchopy791brs24&access_token=\" +pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"  \"headers\": {\r",
+									"    \"\": \"\"\r",
+									"  },\r",
+									"};\r",
+									"pm.sendRequest(requestGetUserFollowsPlaylist, function (err, response) {\r",
+									"    console.log(response.text());\r",
+									"    pm.test(\"Playlist is followed be the user\", function () {\r",
+									"        pm.expect(response.text()).to.include(true);\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/followers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"37i9dQZF1DX3rxVfibe1L0",
+								"followers"
+							]
+						},
+						"description": "In order to test the follow playlist request, it is necessary to make a request to check if the user is in the following list of the playlist.\n\nFor that matter, the call to \"Check if user follows a playlist\" was done and the response was checked. Response should be true in case the playlist was followed. \n\nNote: Access token was set as global variable named \"token\""
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow a playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var requestGetUserFollowsPlaylist = {\r",
+									"    \"url\": \"https://api.spotify.com/v1/playlists/37i9dQZF1DWU13kKnk03AP/followers/contains?ids=3zi2r02ikiqfchopy791brs24&access_token=\" +pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"  \"headers\": {\r",
+									"    \"\": \"\"\r",
+									"  },\r",
+									"};\r",
+									"pm.sendRequest(requestGetUserFollowsPlaylist, function (err, response) {\r",
+									"    console.log(response.text());\r",
+									"    pm.test(\"Playlist is followed be the user\", function () {\r",
+									"        pm.expect(response.text()).to.include(false);\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DWU13kKnk03AP/followers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"37i9dQZF1DWU13kKnk03AP",
+								"followers"
+							]
+						},
+						"description": "A test was done to see if an specific playlist is unfollow.\nThe request can be verified with the \"Check if user follows a playlist\" request.\n\nNote: Access token was set as global variable named \"token\""
+					},
+					"response": []
+				},
+				{
+					"name": "Check if user follows a playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Check if user follows the playlist\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.eql(true);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/followers/contains?ids=3zi2r02ikiqfchopy791brs24",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"37i9dQZF1DX3rxVfibe1L0",
+								"followers",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "3zi2r02ikiqfchopy791brs24"
+								}
+							]
+						},
+						"description": "A test was done to see if an specific playlist is followed.\nIf playlist is followed the body response is \"true\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Followed Artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"User's number of Followed Artists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.artists.items.length).to.eql(12);\r",
+									"});\r",
+									"pm.test(\"Verify each Followed Artists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var artistFollowed=[\"Maroon 5\",\"Nicki Minaj\",\"Metallica\",\"Imagine Dragons\",\"Sia\",\"Rihanna\",\"Martin Garrix\",\"Linkin Park\",\"Ed Sheeran\",\"Nirvana\",\"Rammstein\",\"Eminem\"];\r",
+									"    var temp=jsonData.artists.items;\r",
+									"    for(index=0;index<artistFollowed.length;index++)\r",
+									"    {\r",
+									"       pm.expect(temp[index].name).to.eql(artistFollowed[index]);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/me/following?type=artist",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me",
+								"following"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "artist"
+								}
+							]
+						},
+						"description": "A test was done to verify the user's followed artists."
+					},
+					"response": []
+				},
+				{
+					"name": "Follow Artists or Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var token = pm.request.url.query;\r",
+									"console.log(token[0])\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/me/following/contains?type=user&ids=ymchp617t07mp3o6uarcjw3nw&access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									"pm.sendRequest(settings, function (err, response) {\r",
+									"\r",
+									"    pm.test(\"Playlist is followed be the user\", function () {\r",
+									"        pm.expect(response.text()).to.include('true');\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/me/following?type=user&ids=qjknrjklequ3abhb8v5wwfer5",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me",
+								"following"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "user"
+								},
+								{
+									"key": "ids",
+									"value": "qjknrjklequ3abhb8v5wwfer5"
+								}
+							]
+						},
+						"description": "In order to test the follow user request, it is necessary to make a request to get the following state of an user.\n\nFor that matter, the call to \"Get Following State for Artists/User\" was done and the response was checked. Response should be true in case the user was followed."
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow Artists or Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var token = pm.request.url.query;\r",
+									"console.log(token[0])\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/me/following/contains?type=user&ids=qjknrjklequ3abhb8v5wwfer5&access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									"pm.sendRequest(settings, function (err, response) {\r",
+									"\r",
+									"    pm.test(\"Playlist is unfollowed be the user\", function () {\r",
+									"        pm.expect(response.text()).to.include(false);\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/me/following?type=user&ids=qjknrjklequ3abhb8v5wwfer5",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me",
+								"following"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "user"
+								},
+								{
+									"key": "ids",
+									"value": "qjknrjklequ3abhb8v5wwfer5"
+								}
+							]
+						},
+						"description": "In order to test the unfollow user request, it is necessary to make a request to get the following state of an user.\n\nFor that matter, the call to \"Get Following Artists/User\" was done and the response was checked. Response should be false in case the user was unfollowed."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Following State for Artists/Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Get Following State for Artists/Users\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.include(true);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/me/following/contains?type=user&ids=ymchp617t07mp3o6uarcjw3nw",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me",
+								"following",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "user"
+								},
+								{
+									"key": "ids",
+									"value": "ymchp617t07mp3o6uarcjw3nw"
+								}
+							]
+						},
+						"description": "The request verify if an user is followed or not. The response will be true or false depend of the state of the user. "
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Playlists API",
+			"item": [
+				{
+					"name": "Get a List of Current User's Playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Get a List of Current User's Playlists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/me/playlists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me",
+								"playlists"
+							]
+						},
+						"description": "Since the list of current user playlist can be changed at any time, a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a List of a User's Playlists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Get a List of a User's Playlists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/users/ymchp617t07mp3o6uarcjw3nw/playlists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"users",
+								"ymchp617t07mp3o6uarcjw3nw",
+								"playlists"
+							]
+						},
+						"description": "Since the list of specified user playlists can be changed at any  time , a check was done to see if at least one item is in the list"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"     schema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"collaborative\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    },\r",
+									"    \"description\": {\r",
+									"      \"type\": \"null\"\r",
+									"    },\r",
+									"    \"external_urls\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"spotify\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"spotify\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"followers\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"href\": {\r",
+									"          \"type\": \"null\"\r",
+									"        },\r",
+									"        \"total\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"href\",\r",
+									"        \"total\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"href\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"images\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": {}\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"owner\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"display_name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"external_urls\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"spotify\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"spotify\"\r",
+									"          ]\r",
+									"        },\r",
+									"        \"href\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"type\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"uri\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"display_name\",\r",
+									"        \"external_urls\",\r",
+									"        \"href\",\r",
+									"        \"id\",\r",
+									"        \"type\",\r",
+									"        \"uri\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"primary_color\": {\r",
+									"      \"type\": \"null\"\r",
+									"    },\r",
+									"    \"public\": {\r",
+									"      \"type\": \"boolean\"\r",
+									"    },\r",
+									"    \"snapshot_id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"tracks\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"href\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"items\": {\r",
+									"          \"type\": \"array\",\r",
+									"          \"items\": {}\r",
+									"        },\r",
+									"        \"limit\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"next\": {\r",
+									"          \"type\": \"null\"\r",
+									"        },\r",
+									"        \"offset\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"previous\": {\r",
+									"          \"type\": \"null\"\r",
+									"        },\r",
+									"        \"total\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"href\",\r",
+									"        \"items\",\r",
+									"        \"limit\",\r",
+									"        \"next\",\r",
+									"        \"offset\",\r",
+									"        \"previous\",\r",
+									"        \"total\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"uri\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"collaborative\",\r",
+									"    \"description\",\r",
+									"    \"external_urls\",\r",
+									"    \"followers\",\r",
+									"    \"href\",\r",
+									"    \"id\",\r",
+									"    \"images\",\r",
+									"    \"name\",\r",
+									"    \"owner\",\r",
+									"    \"primary_color\",\r",
+									"    \"public\",\r",
+									"    \"snapshot_id\",\r",
+									"    \"tracks\",\r",
+									"    \"type\",\r",
+									"    \"uri\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test('Schema is valid', function() {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/users/ymchp617t07mp3o6uarcjw3nw/playlists?access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									"pm.sendRequest(settings, function (err, response) {\r",
+									"    console.log(response.json());\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"This is a playlist\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/users/3zi2r02ikiqfchopy791brs24/playlists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"users",
+								"3zi2r02ikiqfchopy791brs24",
+								"playlists"
+							]
+						},
+						"description": "Response body should have the correct format."
+					},
+					"response": []
+				},
+				{
+					"name": "Change a Playlist's Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var token = pm.request.url.query;\r",
+									"console.log(token[0])\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/playlists/2KEUVIIwKULkUmyeoFkeI6?access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									"pm.sendRequest(settings, function (err, response) {\r",
+									"\r",
+									"    pm.test(\"Details changing\", function () {\r",
+									"        pm.expect(response.text()).to.include(\"Updated This is a playlist\");\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated This is a playlist\",\r\n  \"public\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"2U3yrUzsMBKSeY7bxd6YOq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Get a Playlist\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Updated This is a playlist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"2U3yrUzsMBKSeY7bxd6YOq"
+							]
+						},
+						"description": "After the request the name of the playlist is changed from \"This is a playlist\" to \"Updated This is a playlist\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Playlist's Items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Get a Playlist's Items\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.items.length).to.be.at.least(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DX843Qf4lrFtZ/tracks?market=from_token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"37i9dQZF1DX843Qf4lrFtZ",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "from_token"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Items to a Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?market=from_token&access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									" pm.test(\"Both items ar added to the playlist\", function () {\r",
+									"    pm.sendRequest(settings, function (err, response) {\r",
+									"        var jsondata=response.json();\r",
+									"        pm.expect(jsondata.items[0].track.id).to.eql('3UyTGlly5MuILHn2bnOLZk')\r",
+									"        pm.expect(jsondata.items[1].track.id).to.eql('7EiOo8IYnLOxKWieu4vOVH')\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"uris\":\r\n[\"spotify:track:3UyTGlly5MuILHn2bnOLZk\",\r\n\"spotify:track:7EiOo8IYnLOxKWieu4vOVH\"],\r\n\"position\":0}"
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"2U3yrUzsMBKSeY7bxd6YOq",
+								"tracks"
+							]
+						},
+						"description": "A test was done to verify if both tracks were added to the playlist."
+					},
+					"response": []
+				},
+				{
+					"name": "Reorder or Replace a Playlist's Items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?market=from_token&access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									" pm.test(\"Both items ar added to the playlist\", function () {\r",
+									"    pm.sendRequest(settings, function (err, response) {\r",
+									"        var jsondata=response.json();\r",
+									"        pm.expect(jsondata.items[1].track.id).to.eql('3UyTGlly5MuILHn2bnOLZk')\r",
+									"        pm.expect(jsondata.items[0].track.id).to.eql('7EiOo8IYnLOxKWieu4vOVH')\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"range_start\": 0,\r\n  \"insert_before\": 2,\r\n  \"range_length\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?tracks=7EiOo8IYnLOxKWieu4vOVH,3UyTGlly5MuILHn2bnOLZk",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"2U3yrUzsMBKSeY7bxd6YOq",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "tracks",
+									"value": "7EiOo8IYnLOxKWieu4vOVH,3UyTGlly5MuILHn2bnOLZk"
+								}
+							]
+						},
+						"description": "A test was done to see if the tracks are reordered."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Items from a Playlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var settings = {\r",
+									"  \"url\": \"https://api.spotify.com/v1/users/ymchp617t07mp3o6uarcjw3nw/playlists?access_token=\"+pm.environment.get(\"token\"),\r",
+									"  \"method\": \"GET\",\r",
+									"  \"timeout\": 0,\r",
+									"};\r",
+									"pm.test(\"Track removed from playlist\",function(){\r",
+									"pm.sendRequest(settings, function (err, response) {\r",
+									"    var jsonData=response.json();\r",
+									"    var trackFound=false;\r",
+									"    for(var i=0;i<jsonData.items.length;i++){\r",
+									"        if(jsonData.items[i].id==\"7EiOo8IYnLOxKWieu4vOVH\"){\r",
+									"            trackFound=true;\r",
+									"        }\r",
+									"    }\r",
+									"    pm.expect(false,trackFound);\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tracks\":[\r\n        {\r\n             \"uri\":\"spotify:track:3UyTGlly5MuILHn2bnOLZk\",\r\n              \"positions\":[1]\r\n              },\r\n              {\r\n                  \"uri\":\"spotify:track:7EiOo8IYnLOxKWieu4vOVH\",\r\n               \"position\":[0]\r\n               }\r\n           ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"2U3yrUzsMBKSeY7bxd6YOq",
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Playlist Cover Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].url).to.eql(\"https://i.scdn.co/image/ab67706f000000038befc98b4f228c65c03053b9\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/images",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"37i9dQZF1DX3rxVfibe1L0",
+								"images"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenType",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": " user-read-playback-position user-read-private user-read-email playlist-read-private user-library-read user-library-modify user-top-read playlist-read-collaborative playlist-modify-public playlist-modify-private ugc-image-upload user-follow-read user-follow-modify user-read-playback-state user-modify-playback-state user-read-currently-playing user-read-recently-played",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{SpotifyClientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{SpotifyClientID}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Access_Spotify",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "http://localhost:8888/callback",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://accounts.spotify.com/authorize",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "queryParams",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://accounts.spotify.com/api/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

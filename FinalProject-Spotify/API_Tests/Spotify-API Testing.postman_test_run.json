@@ -1,0 +1,1191 @@
+{
+	"id": "8d98e08c-186f-47af-b993-cc380d0904db",
+	"name": "Spotify-API Testing",
+	"timestamp": "2021-03-29T06:27:50.599Z",
+	"collection_id": "ec03cc7a-c1de-b0aa-c923-7e913236751c",
+	"folder_id": 0,
+	"environment_id": "794b0210-afce-448d-bbec-ade85db1a01a",
+	"totalPass": 83,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "06b06c00-e9c6-4252-bab3-7f5cff75cb37",
+			"name": "Search for an artist",
+			"url": "https://api.spotify.com/v1/search?q=Maroon5&type=artist&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 82,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Searched artist is found": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Searched artist is found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				82
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Searched artist is found": true
+				}
+			]
+		},
+		{
+			"id": "c4125026-e19f-4f80-bb87-f917257ba066",
+			"name": "Search for a track",
+			"url": "https://api.spotify.com/v1/search?type=track&q=Nothing%20else%20matters&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 147,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Searched track is found": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Searched track is found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				147
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Searched track is found": true
+				}
+			]
+		},
+		{
+			"id": "14adc9aa-725b-4f1e-a19b-01b5c78c89c3",
+			"name": "Search for an artist and track",
+			"url": "https://api.spotify.com/v1/search?type=artist,track&q=Metallica%20Nothing%20Else%20Matters&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Searched artist is found": true,
+				"Searched track is found": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Searched artist is found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Searched track is found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Searched artist is found": true,
+					"Searched track is found": true
+				}
+			]
+		},
+		{
+			"id": "56e6ed66-1e61-4bca-b734-d1e403193d78",
+			"name": "Get All New Releases",
+			"url": "https://api.spotify.com/v1/browse/new-releases?country=RO&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 231,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 400ms": true,
+				"Request should get at least 1 new release album": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Request should get at least 1 new release album": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				231
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 400ms": true,
+					"Request should get at least 1 new release album": true
+				}
+			]
+		},
+		{
+			"id": "9b392e0a-31cc-4d18-b136-f1e4a2897399",
+			"name": "Get All Featured Playlists",
+			"url": "https://api.spotify.com/v1/browse/featured-playlists?country=RO&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 82,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				82
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "cc0461ea-0e88-47a0-a364-54213c8fc4ad",
+			"name": "Get All Categories",
+			"url": "https://api.spotify.com/v1/browse/categories?country=RO&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "2f778c1a-56b1-4d2a-8fb0-a91f85a066f8",
+			"name": "Get a Category",
+			"url": "https://api.spotify.com/v1/browse/categories/toplists?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "ebf69b09-8ebb-4113-91a6-088fb5fa5711",
+			"name": "Get a Category's Playlists",
+			"url": "https://api.spotify.com/v1/browse/categories/mood/playlists?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 178,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				178
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "39588dbf-73db-46f8-9425-8024d729aa43",
+			"name": "Get Recommendations",
+			"url": "https://api.spotify.com/v1/recommendations?seed_artists=137W8MRPWKqSmrBGDBFSop&seed_tracks=&seed_genres=pop&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 344,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 450ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 450ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				344
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 450ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "101e5c16-5c0c-4987-afed-1faeb9e85fd3",
+			"name": "Get Recommendation Genres",
+			"url": "https://api.spotify.com/v1/recommendations/available-genre-seeds?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "11301335-ca2c-41ba-bbd0-2be9270de584",
+			"name": "Follow a Playlist",
+			"url": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/followers?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Playlist is followed be the user": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Playlist is followed be the user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				71
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Playlist is followed be the user": true
+				}
+			]
+		},
+		{
+			"id": "7787eb20-de29-4f91-9995-696b9e531ef2",
+			"name": "Unfollow a playlist",
+			"url": "https://api.spotify.com/v1/playlists/37i9dQZF1DWU13kKnk03AP/followers?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Playlist is followed be the user": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Playlist is followed be the user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				84
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Playlist is followed be the user": true
+				}
+			]
+		},
+		{
+			"id": "9ee47c67-6b8e-440a-9251-5ed94c0864ab",
+			"name": "Check if user follows a playlist",
+			"url": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/followers/contains?ids=3zi2r02ikiqfchopy791brs24&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Check if user follows the playlist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if user follows the playlist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Check if user follows the playlist": true
+				}
+			]
+		},
+		{
+			"id": "a0d472ca-675c-48a6-b08b-9636c78f7fd5",
+			"name": "Get User's Followed Artists",
+			"url": "https://api.spotify.com/v1/me/following?type=artist&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"User's number of Followed Artists": true,
+				"Verify each Followed Artists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User's number of Followed Artists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify each Followed Artists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"User's number of Followed Artists": true,
+					"Verify each Followed Artists": true
+				}
+			]
+		},
+		{
+			"id": "2cad363a-19bd-40b4-b258-04576e41cc9d",
+			"name": "Follow Artists or Users",
+			"url": "https://api.spotify.com/v1/me/following?type=user&ids=qjknrjklequ3abhb8v5wwfer5&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 68,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 200ms": true,
+				"Playlist is followed be the user": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Playlist is followed be the user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				68
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 200ms": true,
+					"Playlist is followed be the user": true
+				}
+			]
+		},
+		{
+			"id": "7d17fbdf-9fc7-4abe-8328-fea485732e90",
+			"name": "Unfollow Artists or Users",
+			"url": "https://api.spotify.com/v1/me/following?type=user&ids=qjknrjklequ3abhb8v5wwfer5&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 60,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 200ms": true,
+				"Playlist is unfollowed be the user": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Playlist is unfollowed be the user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 200ms": true,
+					"Playlist is unfollowed be the user": true
+				}
+			]
+		},
+		{
+			"id": "ea068c05-8efb-4b17-baf3-f983b14dde09",
+			"name": "Get Following State for Artists/Users",
+			"url": "https://api.spotify.com/v1/me/following/contains?type=user&ids=ymchp617t07mp3o6uarcjw3nw&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 63,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Get Following State for Artists/Users": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get Following State for Artists/Users": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				63
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Get Following State for Artists/Users": true
+				}
+			]
+		},
+		{
+			"id": "57baaf16-4bd4-4dc1-ae04-abbaec50f24c",
+			"name": "Get a List of Current User's Playlists",
+			"url": "https://api.spotify.com/v1/me/playlists?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 106,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Get a List of Current User's Playlists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get a List of Current User's Playlists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				106
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Get a List of Current User's Playlists": true
+				}
+			]
+		},
+		{
+			"id": "b00fb76e-dbf6-4f05-ac79-bc97c65f4f8e",
+			"name": "Get a List of a User's Playlists",
+			"url": "https://api.spotify.com/v1/users/ymchp617t07mp3o6uarcjw3nw/playlists?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 111,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Get a List of a User's Playlists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get a List of a User's Playlists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Get a List of a User's Playlists": true
+				}
+			]
+		},
+		{
+			"id": "c418e8ae-c490-4f86-9ef2-85083a3ece36",
+			"name": "Create a Playlist",
+			"url": "https://api.spotify.com/v1/users/3zi2r02ikiqfchopy791brs24/playlists?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 155,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response time is less than 200ms": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				155
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "16963dfe-a227-4680-9267-bf9083bf2f2e",
+			"name": "Change a Playlist's Details",
+			"url": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Details changing": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Details changing": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				129
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Details changing": true
+				}
+			]
+		},
+		{
+			"id": "46e73c46-3871-4796-9ec5-361097b8c377",
+			"name": "Get a Playlist",
+			"url": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 116,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Get a Playlist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get a Playlist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Get a Playlist": true
+				}
+			]
+		},
+		{
+			"id": "f6bea6c4-6c43-4694-890f-46f5069d1616",
+			"name": "Get a Playlist's Items",
+			"url": "https://api.spotify.com/v1/playlists/37i9dQZF1DX843Qf4lrFtZ/tracks?market=from_token&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 143,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Get a Playlist's Items": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get a Playlist's Items": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				143
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Get a Playlist's Items": true
+				}
+			]
+		},
+		{
+			"id": "e352d47e-be51-4aa7-9e69-c4d0a975ff03",
+			"name": "Add Items to a Playlist",
+			"url": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 125,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response time is less than 200ms": true,
+				"Both items ar added to the playlist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Both items ar added to the playlist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				125
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response time is less than 200ms": true,
+					"Both items ar added to the playlist": true
+				}
+			]
+		},
+		{
+			"id": "d67808c5-069a-4fa0-afd6-d462137f06aa",
+			"name": "Reorder or Replace a Playlist's Items",
+			"url": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?tracks=7EiOo8IYnLOxKWieu4vOVH,3UyTGlly5MuILHn2bnOLZk&access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 173,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Both items ar added to the playlist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Both items ar added to the playlist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				173
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Both items ar added to the playlist": true
+				}
+			]
+		},
+		{
+			"id": "04a0482f-38b3-445d-bec7-6d1c1a9aff1e",
+			"name": "Remove Items from a Playlist",
+			"url": "https://api.spotify.com/v1/playlists/2U3yrUzsMBKSeY7bxd6YOq/tracks?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 121,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Track removed from playlist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Track removed from playlist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				121
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Track removed from playlist": true
+				}
+			]
+		},
+		{
+			"id": "bcabd0f0-9589-4d02-8dfe-a017f7823006",
+			"name": "Get a Playlist Cover Image",
+			"url": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3rxVfibe1L0/images?access_token=BQDXgsLROq3JToHJlNMX6fFUdbxPTsLqtsg7ZZe2ovHFglhA1RvFUMkvwE97TgRwZkVHyiVWWoEXyX7axyByu7Jx_oDHFgr8bxMKjt0YtY76mCUUMgUiInDi4gE0HLUAEDax5p3Jv08fIyPlHv_67lgk0LTUdlrG3AP-opumnpVbtQXrGDTxO1szHfFhceYw-zJymyRmQtSFEJAf1OabShfvS_KKA9DQq6FZis-SM_yr0kP16yCGnFTX6rf-XBAaMa5LKvqPaRJEvDpwPG8GAUxc45L9J-eEjR9n-g3gExA",
+			"time": 106,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				106
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Your test name": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3173,
+	"collection": {
+		"requests": [
+			{
+				"id": "06b06c00-e9c6-4252-bab3-7f5cff75cb37",
+				"method": "GET"
+			},
+			{
+				"id": "c4125026-e19f-4f80-bb87-f917257ba066",
+				"method": "GET"
+			},
+			{
+				"id": "14adc9aa-725b-4f1e-a19b-01b5c78c89c3",
+				"method": "GET"
+			},
+			{
+				"id": "56e6ed66-1e61-4bca-b734-d1e403193d78",
+				"method": "GET"
+			},
+			{
+				"id": "9b392e0a-31cc-4d18-b136-f1e4a2897399",
+				"method": "GET"
+			},
+			{
+				"id": "cc0461ea-0e88-47a0-a364-54213c8fc4ad",
+				"method": "GET"
+			},
+			{
+				"id": "2f778c1a-56b1-4d2a-8fb0-a91f85a066f8",
+				"method": "GET"
+			},
+			{
+				"id": "ebf69b09-8ebb-4113-91a6-088fb5fa5711",
+				"method": "GET"
+			},
+			{
+				"id": "39588dbf-73db-46f8-9425-8024d729aa43",
+				"method": "GET"
+			},
+			{
+				"id": "101e5c16-5c0c-4987-afed-1faeb9e85fd3",
+				"method": "GET"
+			},
+			{
+				"id": "11301335-ca2c-41ba-bbd0-2be9270de584",
+				"method": "PUT"
+			},
+			{
+				"id": "7787eb20-de29-4f91-9995-696b9e531ef2",
+				"method": "DELETE"
+			},
+			{
+				"id": "9ee47c67-6b8e-440a-9251-5ed94c0864ab",
+				"method": "GET"
+			},
+			{
+				"id": "a0d472ca-675c-48a6-b08b-9636c78f7fd5",
+				"method": "GET"
+			},
+			{
+				"id": "2cad363a-19bd-40b4-b258-04576e41cc9d",
+				"method": "PUT"
+			},
+			{
+				"id": "7d17fbdf-9fc7-4abe-8328-fea485732e90",
+				"method": "DELETE"
+			},
+			{
+				"id": "ea068c05-8efb-4b17-baf3-f983b14dde09",
+				"method": "GET"
+			},
+			{
+				"id": "57baaf16-4bd4-4dc1-ae04-abbaec50f24c",
+				"method": "GET"
+			},
+			{
+				"id": "b00fb76e-dbf6-4f05-ac79-bc97c65f4f8e",
+				"method": "GET"
+			},
+			{
+				"id": "c418e8ae-c490-4f86-9ef2-85083a3ece36",
+				"method": "POST"
+			},
+			{
+				"id": "16963dfe-a227-4680-9267-bf9083bf2f2e",
+				"method": "PUT"
+			},
+			{
+				"id": "46e73c46-3871-4796-9ec5-361097b8c377",
+				"method": "GET"
+			},
+			{
+				"id": "f6bea6c4-6c43-4694-890f-46f5069d1616",
+				"method": "GET"
+			},
+			{
+				"id": "e352d47e-be51-4aa7-9e69-c4d0a975ff03",
+				"method": "POST"
+			},
+			{
+				"id": "d67808c5-069a-4fa0-afd6-d462137f06aa",
+				"method": "PUT"
+			},
+			{
+				"id": "04a0482f-38b3-445d-bec7-6d1c1a9aff1e",
+				"method": "DELETE"
+			},
+			{
+				"id": "bcabd0f0-9589-4d02-8dfe-a017f7823006",
+				"method": "GET"
+			}
+		]
+	}
+}
